@@ -16,7 +16,7 @@ public class MainController {
 	@RequestMapping("/getCodeLines")
 	public void main() throws Exception {	
 		
-		URL url = new URL("https://plaintextproject.online/articles.html");
+		URL url = new URL("https://open.spotify.com/queue");
 		URLConnection con = url.openConnection();
 		InputStream is = con.getInputStream();
 		
@@ -25,7 +25,7 @@ public class MainController {
         
             // Read each (code) line and write to System.out
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                System.out.println(line + "\n");
             }
         }
 	}
