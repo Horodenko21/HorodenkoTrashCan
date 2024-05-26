@@ -7,14 +7,17 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/Horodenko")
 public class MainController {
 	
+	// Testar = http://localhost:8080/Horodenko/getCodeLines?caminho=
 	@RequestMapping("/getCodeLines")
-	public void main() throws Exception {	
+	public void getCodeLines(@RequestParam String caminho) throws Exception {	
 		
 		URL url = new URL("https://open.spotify.com/queue");
 		URLConnection con = url.openConnection();
@@ -30,4 +33,9 @@ public class MainController {
         }
 	}
 	
+	// Testar = http://localhost:8080/Horodenko/getMusicLink?musicName=
+	@RequestMapping("/getMusicLink")
+	public void getMusicLink(@RequestParam String musicName) {
+		System.out.println(musicName);
+	}
 }
